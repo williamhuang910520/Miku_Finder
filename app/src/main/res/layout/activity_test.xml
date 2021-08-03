@@ -40,9 +40,9 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/testActivity_edittext_keyword"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/testActivity_recyclerview"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"

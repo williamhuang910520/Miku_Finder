@@ -1,6 +1,7 @@
 package com.hanchi.arofinder;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -30,12 +31,13 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class TestActivity extends AppCompatActivity {
+    private final String TAG = "TestActivity";
 
     TextView textView;
     EditText editText;
     Button button;
-    ListView recyclerView;
-    private final String TAG = "TestActivity";
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class TestActivity extends AppCompatActivity {
         editText = findViewById(R.id.testActivity_edittext_keyword);
         button = findViewById(R.id.testActivity_button_confirm);
         recyclerView = findViewById(R.id.testActivity_recyclerview);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +64,10 @@ public class TestActivity extends AppCompatActivity {
 //                        String title_1 = null;
 //                        title_1 = reportModels.get(0).TITLE;
 //                        textView.setText(title_1);
-                        ArrayAdapter adapter = new ArrayAdapter(TestActivity.this, android.R.layout.simple_list_item_1, reportModels);
+
+                        MyAdapter adapter = new MyAdapter(reportModels);
                         recyclerView.setAdapter(adapter);
-                        Log.d(TAG, "Successfully get value.");
+                        Log.d(TAG, "Successfully get values.");
                     }
 
                     @Override

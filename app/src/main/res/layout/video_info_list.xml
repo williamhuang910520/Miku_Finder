@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/video_info_list_imageview"
         android:layout_width="160dp"
-        android:layout_height="99dp"
+        android:layout_height="90dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
@@ -19,23 +19,24 @@
     <TextView
         android:id="@+id/video_info_list_textview_title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:ellipsize="end"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/video_info_list_imageview"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="【初音ミク】みくみくにしてあげる♪【してやんよ】" />
+        tools:text="【初音ミク】みくみくにしてあげる♪【してやんよhahahahahaahahhahahahaahahhaahahahahaahahahaa" />
 
     <TextView
         android:id="@+id/video_info_list_textview_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/video_info_list_imageview"
         app:layout_constraintStart_toEndOf="@+id/video_info_list_imageview"
@@ -44,14 +45,31 @@
     <TextView
         android:id="@+id/video_info_list_textview_description"
         android:layout_width="0dp"
-        android:layout_height="61dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/video_info_list_imageview"
-        tools:text="おまえら、みっくみくにしてやんよ。歌詞はhttp://ikamo.hp.infoseek.co.jp/mikumiku.txt（9/20 1:55修正）。上げている他のもの→mylist/70391/1450136" />
+        tools:text="おまえら、みっくみくにしてやんよ。歌詞はhttp://ikamo.hp.infoseek.co.jp/mikumiku.txt（9/20 1:55修正）。上げている他のもの→mylist/70391/1450136【初音ミク】みくみくにしてあげる♪【してやんよ】【初音ミク】みくみくにしてあげる♪【してやんよ】【初音ミク】みくみくにしてあげる♪【してやんよ】" />
+
+    <TextView
+        android:id="@+id/video_info_list_textview_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/textview_rounded_video_length"
+        android:text="3:21"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/video_info_list_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/video_info_list_imageview" />
 </androidx.constraintlayout.widget.ConstraintLayout>
