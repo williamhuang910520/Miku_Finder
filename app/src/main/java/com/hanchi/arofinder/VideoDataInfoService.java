@@ -44,8 +44,6 @@ public class VideoDataInfoService {
 //                + "&_offset=0"
                 + "&_limit=10"
                 + "&_context=finderTest";
-//                "https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF&targets=title&fields=contentId,title,viewCounter&filters[viewCounter][gte]=10000&_sort=-viewCounter&_offset=0&_limit=3&_context=apiguide";
-
         Log.d(TAG, url_nico);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url_nico, null,
                 new Response.Listener<JSONObject>() {
@@ -154,7 +152,6 @@ public class VideoDataInfoService {
             idSet += reportModels.get(i).YT_VIDEO_ID;
             if(i != reportModels.size()-1) idSet += ",";
         }
-        // https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails%2Cstatistics&fields=items(contentDetails(duration),statistics)&id=Iy-JNAUuzYw%2C-u_aPTp_5u8%2CZp7PEiX1zvM&key=AIzaSyCOzktDpznaPMsarODiC4USGOcEmf0nuZw
         String url = YOUTUBE_DATA_API +
                 "videos?" +
                 "&part=contentDetails,statistics" +
