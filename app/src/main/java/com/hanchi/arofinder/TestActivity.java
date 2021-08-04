@@ -57,8 +57,9 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View view) {
                 VideoDataInfoService videoDataInfoService = new VideoDataInfoService(TestActivity.this);
                 SearchRequirement searchRequirement = new SearchRequirement();
-                searchRequirement.setKeyword(editText.getText().toString());
-                videoDataInfoService.getNicoVideoInfoByKeyword(searchRequirement, new VideoInfoResponseListener() {
+//                searchRequirement.setKeyword(editText.getText().toString());
+                searchRequirement.setKeyword("狼音アロ");
+                videoDataInfoService.getYoutubeVideoInfoByKeyword(searchRequirement, new VideoInfoResponseListener() {
                     @Override
                     public void onResponse(List<VideoReportModel> reportModels) {
 //                        String title_1 = null;

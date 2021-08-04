@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,9 +22,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder{
         private final TextView title, author, description, videoLength;
         private final ImageView picture;
+        private final View container;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            container = itemView;
             title = itemView.findViewById(R.id.video_info_list_textview_title);
             author = itemView.findViewById(R.id.video_info_list_textview_author);
             description = itemView.findViewById(R.id.video_info_list_textview_description);
@@ -50,6 +53,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public TextView getVideoLength() {
             return videoLength;
         }
+
+        public View getContainer() {
+            return container;
+        }
     }
 
     public MyAdapter(List<VideoReportModel> dataSet) {
@@ -65,7 +72,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, final int position) {
         holder.getTitle().setText(reportModels.get(position).TITLE);
         holder.getAuthor().setText(reportModels.get(position).AUTHOR);
         holder.getDescription().setText(reportModels.get(position).DESCRIPTION);
@@ -73,6 +80,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         String url = reportModels.get(position).IMAGE_URL;
 //        holder.getPicture().setImageURI(Uri.parse(uri));
         Picasso.get().load(url).into(holder.getPicture());
+
+        holder.getContainer().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "hit pos: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

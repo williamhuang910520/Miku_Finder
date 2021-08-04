@@ -8,8 +8,10 @@ public class VideoReportModel {
     public String IMAGE_URL;
     public String ORIGINAL_LINK;
     public String UPLOAD_DATE;
-    public String LIKE_COUNTER;
-    public String COMMENT_COUNTER;
+    public String LIKE_COUNT;
+    public String COMMENT_COUNT;
+
+    public String YT_VIDEO_ID;
 
     public VideoReportModel() {
 
